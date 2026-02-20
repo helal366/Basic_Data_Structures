@@ -20,17 +20,40 @@ void print_forward(Node* head){
     }
     cout << endl;
 }
-void insert_at_any_position(Node* head, int idx, int val){
+void insert_at_any_position(Node* &head, int idx, int val){
+    if(idx<0){
+        cout << "Invalid index" << endl;
+        return;
+    }
     Node* newnode=new Node(val);
+    if(idx==0){
+        if(head!=NULL){
+            newnode->next=head;
+            head->prev=newnode;
+        }
+        head=newnode;
+        return;
+    }
     Node* temp=head;
     for (int i = 0; i < idx-1; i++)
     {
+        if(temp==NULL){
+            cout << "Invalid index" << endl;
+            return;
+        }
         temp=temp->next;
     }
+    if(temp==NULL){
+        cout << "Invalid index" << endl;
+        return;
+    }
     newnode->next=temp->next;
-    newnode->next->prev=newnode;
+    if(temp->next!=NULL){
+        temp->next->prev=newnode;
+    }
     temp->next=newnode;
-    newnode->prev=temp;   
+    newnode->prev=temp;
+    
 }
 int main(){
     Node* head=new Node(10);
@@ -48,6 +71,9 @@ int main(){
     tail->prev=b;
     insert_at_any_position(head, 2, 100);
     insert_at_any_position(head, 1, 200);
+    insert_at_any_position(head, 0, 300);
+    insert_at_any_position(head, 3, 400);
+    insert_at_any_position(head, 0, 500);
     print_forward(head);
     return 0;
 }
