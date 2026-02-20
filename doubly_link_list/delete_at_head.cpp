@@ -23,16 +23,16 @@ void print_forward(Node* head){
 void delete_at_head(Node* &head, Node* &tail){
     if(head==NULL){
         cout << "List is empty\n";
-    }
-    Node* deleteNode=head;
-    if(head->next==NULL){
-        head=tail=NULL;
-        delete deleteNode;
         return;
     }
+    Node* deleteNode=head;
     head=head->next;
-    head->prev=NULL;
     delete deleteNode;
+    if(head==NULL){
+        tail=NULL;       
+        return;
+    }
+    head->prev=NULL;
 }
 int main(){
     Node* head=new Node(10);
