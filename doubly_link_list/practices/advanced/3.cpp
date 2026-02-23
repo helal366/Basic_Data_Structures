@@ -38,8 +38,32 @@ void print_forward(Node *head)
         tmp = tmp->next;
     }
 }
-void delete_all_occurences(){
-    
+void delete_occurances(Node* &head, Node* &tail, int num){
+    if(head==NULL){
+        return;
+    }
+    Node* tmp=head;
+    while(tmp!=NULL){
+        if(tmp->val==num){
+            if(tmp==head && tmp==tail){
+                head=tail=NULL;
+            }else if(tmp==head && tmp!=tail){
+                head=head->next;
+                head->prev=NULL;
+            }else if(tmp==tail && tmp!=head){
+                tail=tail->prev;
+                tail->next=NULL;
+            }else{
+                tmp->prev->next=tmp->next;
+                tmp->next->prev=tmp->prev;
+            }
+            Node* deleteNode=tmp;
+            tmp=tmp->next;
+            delete deleteNode;
+        }else{
+            tmp=tmp->next;
+        }
+    }
 }
 int main()
 {
@@ -55,7 +79,10 @@ int main()
         }
         insert_at_tail(head, tail, val);
     }
-    // int num; cin >> num;
+    int num; cin >> num;
+    print_forward(head);
+    cout << endl;
+    delete_occurances(head, tail, num);
     print_forward(head);
     return 0;
 }
