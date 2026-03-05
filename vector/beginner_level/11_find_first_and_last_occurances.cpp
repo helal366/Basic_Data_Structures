@@ -7,18 +7,14 @@ int main()
     vector<int> a(n);
     for (int i = 0; i < n; i++)
         cin >> a[i];
-    int first = 0, second = 0;
+    int first = -1, second = -1;
     for(int i=0; i<n; i++){
         if(a[i]==x){
-            first=i;
-            break;
+            if(first==-1) first = i;
+            second = i;
         } 
     }
-    for(int i=0; i<n; i++){
-        if(i>first && a[i]==x){
-            second=i;
-        }
-    }
+    
     cout << first << " " << second << endl;
     return 0;
 }
