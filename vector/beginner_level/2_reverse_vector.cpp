@@ -10,7 +10,7 @@ int main(){
     for(int i=v.size()-1; i>=0; i--) cout << v[i] << " ";
     cout << endl;
 
-    //process 2:
+    // process 2:
     // take input
     // reverse the vector using reverse() function and begin() end() iterator
     // print the vector

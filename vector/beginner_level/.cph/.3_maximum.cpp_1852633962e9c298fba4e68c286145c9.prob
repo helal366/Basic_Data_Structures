@@ -1,0 +1,1 @@
+{"name":"Local: 3_maximum","url":"d:\\projects2\\github\\basic_data_structures\\vector\\beginner_level\\3_maximum.cpp","tests":[{"id":1772730276602,"input":"6\n7 8 15 63 25 ","output":"63"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\projects2\\github\\basic_data_structures\\vector\\beginner_level\\3_maximum.cpp","group":"local","local":true}
