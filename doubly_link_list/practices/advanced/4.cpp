@@ -38,6 +38,7 @@ void print_forward(Node *head)
         tmp = tmp->next;
     }
 }
+
 Node* merge_two_dll(Node* head1, Node* head2){
     if(!head1) return head2;
     if(!head2) return head1;
